@@ -95,25 +95,73 @@ export const salonConfig: Salon = {
       id: 1, 
       name: "Sofia Rodriguez", 
       role: "Lead Hair Stylist", 
-      image: "/images/prof-ayesha.png", 
-      skills: [1, 2, 3],
-      bio: "10+ years experience in luxury hair couture."
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop", 
+      skills: [1, 2, 3, 4],
+      bio: "10+ years experience in luxury hair couture and precision cutting."
     },
     { 
       id: 2, 
       name: "Elena Thompson", 
-      role: "Skin Specialist", 
-      image: "/images/prof-sara.png", 
-      skills: [6, 7],
-      bio: "Expert in holistic skin therapy and rejuvenation."
+      role: "Senior Aesthetician", 
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop", 
+      skills: [6, 7, 8, 10],
+      bio: "Expert in holistic skin therapy and medical-grade rejuvenation."
     },
     { 
       id: 3, 
       name: "Chloe Anderson", 
-      role: "Makeup Artist", 
-      image: "/images/prof-ayesha.png", 
-      skills: [11],
-      bio: "Celebrity makeup artist specializing in bridal glam."
+      role: "Master Makeup Artist", 
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=400&auto=format&fit=crop", 
+      skills: [11, 12, 13],
+      bio: "Celebrity makeup artist specializing in high-definition bridal glam."
+    },
+    { 
+      id: 4, 
+      name: "Marcus Wright", 
+      role: "Texture Specialist", 
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop", 
+      skills: [1, 4, 5, 2],
+      bio: "Master of natural textures, silk presses, and modern hair artistry."
+    },
+    { 
+      id: 5, 
+      name: "Sarah Jenkins", 
+      role: "Spa Therapist", 
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop", 
+      skills: [8, 9, 10, 6],
+      bio: "Specializing in traditional hammam rituals and organic body treatments."
+    },
+    { 
+      id: 6, 
+      name: "Mia Williams", 
+      role: "Event Stylist", 
+      image: "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=400&auto=format&fit=crop", 
+      skills: [12, 13, 14, 15, 11],
+      bio: "Creating red-carpet ready looks and editorial party glam."
+    },
+    { 
+      id: 7, 
+      name: "Isabella Chen", 
+      role: "Nail Artist", 
+      image: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=400&auto=format&fit=crop", 
+      skills: [16, 17, 18, 19],
+      bio: "Renowned for intricate artisan nail art and Russian manicure techniques."
+    },
+    { 
+      id: 8, 
+      name: "Olivia Brooks", 
+      role: "Colorist & Stylist", 
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop", 
+      skills: [2, 3, 5, 14, 15],
+      bio: "Balayage expert with a passion for vibrant, healthy hair."
+    },
+    { 
+      id: 9, 
+      name: "James Wilson", 
+      role: "Senior Technician", 
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop", 
+      skills: [16, 17, 18, 19, 7, 9],
+      bio: "Technical expert in gel extensions and advanced skin resurfacing."
     },
   ],
 

@@ -11,7 +11,6 @@ import PaymentForm from "@/components/booking/PaymentForm";
 import Confirmation from "@/components/booking/Confirmation";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function BookingPage() {
   const { currentStep, setStep, nextStep, prevStep, canProceed, confirmBooking, resetBooking } =
@@ -89,17 +88,9 @@ export default function BookingPage() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main content */}
           <div className={isConfirmation ? "w-full" : "flex-1 min-w-0"}>
-            <AnimatePresence mode="popLayout">
-              <motion.div
-                key={currentStep}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20, position: "absolute", width: "100%" }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                {getStepComponent()}
-              </motion.div>
-            </AnimatePresence>
+            <div key={currentStep}>
+              {getStepComponent()}
+            </div>
 
             {/* Navigation buttons */}
             {!isConfirmation && (
