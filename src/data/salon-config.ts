@@ -37,7 +37,7 @@ export const salonConfig: Salon = {
   },
 
   contact: {
-    phone: "+92 300 1234567",
+    phone: "(214) 555-0142",
     email: "hello@luxeglow.com",
     address: "2400 Victory Park Ln, Dallas, TX 75219",
   },
@@ -93,7 +93,7 @@ export const salonConfig: Salon = {
   professionals: [
     { 
       id: 1, 
-      name: "Ayesha Khan", 
+      name: "Sofia Rodriguez", 
       role: "Lead Hair Stylist", 
       image: "/images/prof-ayesha.png", 
       skills: [1, 2, 3],
@@ -101,7 +101,7 @@ export const salonConfig: Salon = {
     },
     { 
       id: 2, 
-      name: "Sara Ahmed", 
+      name: "Elena Thompson", 
       role: "Skin Specialist", 
       image: "/images/prof-sara.png", 
       skills: [6, 7],
@@ -109,7 +109,7 @@ export const salonConfig: Salon = {
     },
     { 
       id: 3, 
-      name: "Zoya Malik", 
+      name: "Chloe Anderson", 
       role: "Makeup Artist", 
       image: "/images/prof-ayesha.png", 
       skills: [11],
