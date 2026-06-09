@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { salonConfig } from "@/data/salon-config";
 import { Button } from "../ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Facebook, MessageCircle, ArrowUpRight, Star } from "lucide-react";
 
 const css = `
@@ -52,6 +53,33 @@ const css = `
 export default function Hero() {
   const { title, subtitle, video1, video2 } = salonConfig.hero;
   const words = title.split(" ");
+
+  const [isHovered, setIsHovered] = useState(false);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (isHovered) {
+      // If hovered, load and play video2, and pause video1
+      if (video2Ref.current) {
+        if (!video2Ref.current.src) {
+          video2Ref.current.src = video2 || "";
+        }
+        video2Ref.current.play().catch(() => {});
+      }
+      if (video1Ref.current) {
+        video1Ref.current.pause();
+      }
+    } else {
+      // If not hovered, play video1, and pause video2
+      if (video1Ref.current) {
+        video1Ref.current.play().catch(() => {});
+      }
+      if (video2Ref.current && video2Ref.current.src) {
+        video2Ref.current.pause();
+      }
+    }
+  }, [isHovered, video1, video2]);
 
   return (
     <>
@@ -137,8 +165,14 @@ export default function Hero() {
               <div className="a flex items-center gap-6 pt-8 border-t border-border/40 max-w-sm" style={{ animationDelay: "0.6s" }}>
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-surface overflow-hidden shadow-sm">
-                      <img src={`https://i.pravatar.cc/100?img=${i + 30}`} alt="Reviewer" className="w-full h-full object-cover" />
+                    <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-surface overflow-hidden shadow-sm relative">
+                      <Image 
+                        src={`https://i.pravatar.cc/100?img=${i + 30}`} 
+                        alt="Reviewer" 
+                        fill
+                        sizes="28px"
+                        className="object-cover" 
+                      />
                     </div>
                   ))}
                   <div className="w-7 h-7 rounded-full border-2 border-white bg-accent flex items-center justify-center text-[7px] font-bold text-white">
@@ -159,19 +193,39 @@ export default function Hero() {
             </div>
 
             {/* RIGHT SIDE — Config-Driven Videos */}
-            <div className="ai w-full lg:w-[45%] pr-20 flex justify-center lg:justify-end" style={{ animationDelay: "0.3s" }}>
+            <div 
+              className="ai w-full lg:w-[45%] pr-20 flex justify-center lg:justify-end" 
+              style={{ animationDelay: "0.3s" }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               <div className="card-group relative w-full max-w-[320px] h-[460px] cursor-pointer">
                 
                 {/* BOTTOM (Video 2 from Config) */}
                 <div className="hero-card hover-card absolute inset-0 rounded-[40px] overflow-hidden bg-surface ring-1 ring-black/5">
-                  <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                    <source src={video2 || ""} type="video/mp4" />
+                  <video 
+                    ref={video2Ref} 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover"
+                    preload="none"
+                  >
+                    {/* Source src is dynamically set on hover in useEffect to save 5.82MB on page load */}
                   </video>
                 </div>
 
                 {/* TOP (Video 1 from Config) */}
                 <div className="hero-card main-card absolute inset-0 rounded-[40px] overflow-hidden bg-black ring-1 ring-black/5">
-                  <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                  <video 
+                    ref={video1Ref} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover"
+                    preload="auto"
+                  >
                     <source src={video1 || ""} type="video/mp4" />
                   </video>
                 </div>

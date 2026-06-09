@@ -74,7 +74,7 @@ export default function Gallery() {
                   src={item.src}
                   alt={item.category}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover"
                   priority={index < 3}
                 />
@@ -161,6 +161,7 @@ export default function Gallery() {
                   src={selectedImage.src}
                   alt={selectedImage.category}
                   fill
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="object-contain"
                 />
               </div>
